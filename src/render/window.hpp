@@ -10,15 +10,14 @@ namespace render{
 
     public:
       GLFWwindow* window;
-
-      static Window* get_instance();
-      void loop();
-
-    private:
       unsigned int scr_width = 800;
       unsigned int scr_height = 600;
 
-      void framebuffer_size_callback(GLFWwindow* window, int width, int height);
+      Window();
+      static Window* get_instance();
+      void loop();
   };
+
+  void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 }
 

@@ -4,7 +4,12 @@ using namespace render;
 
 Window* Window::window_ = nullptr;
 
-Window* Window::get_instance() {
+Window::Window() {
+  if (window_ != nullptr) {
+    std::cout << "err::render::window | Too many instances" << std::endl;
+    exit(-1);
+  }
+
   glfwInit();
   glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
   glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
@@ -21,12 +26,20 @@ Window* Window::get_instance() {
     exit(-1);
   }
   glfwMakeContextCurrent(window);
-  glfwSetFramebufferSizeCallback(window, );
+  glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
   if (!gladLoadGLLoader((GLADloadproc) glfwGetProcAddress)) {
     std::cout << "err::render::window::glad | Failed to initialize GLAD" << std::endl;
     exit(-1);
   }
+}
+
+Window* Window::get_instance() {
+  if (window_ == nullptr) {
+    std::cout << "err::render::window | Window not initialized" << std::endl;
+    exit(-1);
+  }
+  return window_;
 }
 
 void Window::loop() {
@@ -42,6 +55,8 @@ void Window::loop() {
   }
 }
 
-void Window::framebuffer_size_callback(GLFWwindow* window, int width, int height) {
+void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
   glViewport(0, 0, width, height);
+  Window::get_instance()->scr_width=width;
+  Window::get_instance()->scr_height=height;
 }
