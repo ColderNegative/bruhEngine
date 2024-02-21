@@ -1,23 +1,20 @@
 #pragma once
+#include "../templates/singleton.hpp"
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
-#include <iostream>
 
-namespace render{
-  class Window {
-    protected:
-      static Window* window_;
+namespace render {
+class Window : public templates::Singleton<Window> {
+public:
+  GLFWwindow *m_pwindow;
+  unsigned int m_scr_width;
+  unsigned int m_scr_height;
+  bool m_should_close;
 
-    public:
-      GLFWwindow* window;
-      unsigned int scr_width = 800;
-      unsigned int scr_height = 600;
+  void init(char *name, int sw, int sh);
+  void poll();
+  void draw();
+};
 
-      Window();
-      static Window* get_instance();
-      void loop();
-  };
-
-  void framebuffer_size_callback(GLFWwindow* window, int width, int height);
+void framebuffer_size_callback(GLFWwindow *window, int width, int height);
 }
-
