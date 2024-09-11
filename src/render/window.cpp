@@ -25,7 +25,11 @@ void Window::init(char *name, int sw, int sh) {
     exit(-1);
   }
   glfwMakeContextCurrent(m_pwindow);
-  glfwSetFramebufferSizeCallback(m_pwindow, framebuffer_size_callback);
+  glfwSetFramebufferSizeCallback(m_pwindow, [&this](GLFWWindow m_pwindow, int width, int height) {
+    glViewport(0, 0, width, height);
+    this.width = width;
+    this.height = height;
+  });
 
   if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
     std::cout << "err::render::m_pwindow::glad | Failed to initialize GLAD"
@@ -47,9 +51,3 @@ void Window::poll() {
         m_should_close = glfwWindowShouldClose(m_pwindow);
 }
 
-void render::framebuffer_size_callback(GLFWwindow *m_pwindow, int width,
-                                       int height) {
-  glViewport(0, 0, width, height);
-  Window::get_instance().m_scr_width = width;
-  Window::get_instance().m_scr_height = height;
-}
