@@ -1,0 +1,3 @@
+Build options: --python_path=C:/Users/TheCo/AppData/Local/Microsoft/WindowsApps/python.exe --verbose_explanations --explain=output.txt
+Executing action 'BazelWorkspaceStatusAction stable-status.txt': unconditional execution is requested.
+Executing action 'Linking src/test.exe': no entry in the cache (action is new).

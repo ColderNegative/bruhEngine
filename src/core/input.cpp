@@ -1,10 +1,11 @@
-#include "../render/window.hpp"
-#include "GLFW/glfw3.h"
+#include "src/render/window.hpp"
 #include <functional>
 #include <iostream>
-#include "input.hpp"
+#include "src/core/input.hpp"
+#include "include/glad.h"
+#include "lib/glfw3.h"
 
-using namespace core;
+namespace core {
 
 void Input::init() {
     auto& window = render::Window::get_instance();
@@ -43,4 +44,6 @@ void core::key_callback(GLFWwindow *window, int key, int scancode, int action, i
     auto& input = Input::get_instance();
     auto func = input.get_key_func(Input::get_glfw_key(key));
     func();
+}
+
 }

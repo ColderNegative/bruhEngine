@@ -1,7 +1,8 @@
-#include "resource.hpp"
+#include "src/core/resource.hpp"
+#include <string>
 #include <functional>
 
-using namespace core;
+namespace core {
 
 template <typename T>
 T* ResourceManager::get_resource(std::string* file_path) {
@@ -25,4 +26,6 @@ void ResourceManager::unload_resource(Resource* resource) {
 Resource::Resource(std::string* file_path) : m_file_path(file_path) {
     std::hash<std::string*> hash;
     m_id = hash(file_path);
+}
+
 }

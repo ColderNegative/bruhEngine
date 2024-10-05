@@ -1,8 +1,9 @@
 #pragma once
 
-#include "../templates/singleton.hpp"
+#include "src/templates/singleton.hpp"
 #include <map>
 #include <typeindex>
+#include <string>
 
 namespace core {
 class Resource {
@@ -11,7 +12,6 @@ class Resource {
         int m_id;
 
         Resource(std::string* file_path);
-        ~Resource();
 };
 
 class ResourceManager : public templates::Singleton<ResourceManager> {

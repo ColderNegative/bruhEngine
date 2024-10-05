@@ -1,6 +1,5 @@
 #pragma once
-#include "../templates/singleton.hpp"
-#include "GLFW/glfw3.h"
+#include "src/templates/singleton.hpp"
 #include <functional>
 #include <map>
 
