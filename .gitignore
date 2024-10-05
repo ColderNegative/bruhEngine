@@ -1,3 +1,5 @@
-# ignore the build file
-build/
-.cache/
+bazel-bin/
+bazel-bruhengine/
+bazel-out/
+bazel-testlogs/
+MODULE.bazel.lock
