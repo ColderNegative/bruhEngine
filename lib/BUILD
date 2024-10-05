@@ -4,7 +4,7 @@ cc_import(
     name = "glfw",
     hdrs = ["glfw3.h", "glfw3native.h"],
     shared_library = "glfw3.dll",
-    alwayslink = True,
+    alwayslink = False,
 )
 
 cc_import(

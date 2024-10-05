@@ -1,3 +1,35 @@
-Build options: --python_path=C:/Users/TheCo/AppData/Local/Microsoft/WindowsApps/python.exe --verbose_explanations --explain=output.txt
-Executing action 'BazelWorkspaceStatusAction stable-status.txt': unconditional execution is requested.
-Executing action 'Linking src/test.exe': no entry in the cache (action is new).
+ *  Executing task: bazel 'build' '//src:test' 
+
+INFO: Analyzed target //src:test (0 packages loaded, 0 targets configured).
+ERROR: C:/users/theco/dev/bruhengine/src/BUILD:37:10: Linking src/test.exe failed: (Exit 1120): link.exe failed: error executing CppLink command (from target //src:test) C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\bin\HostX64\x64\link.exe @bazel-out/x64_windows-fastbuild/bin/src/test.exe-2.params
+test.obj : error LNK2019: unresolved external symbol glfwInit referenced in function main
+test.obj : error LNK2019: unresolved external symbol glfwTerminate referenced in function main
+test.obj : error LNK2019: unresolved external symbol glfwWindowHint referenced in function main
+test.obj : error LNK2019: unresolved external symbol glfwCreateWindow referenced in function main
+test.obj : error LNK2019: unresolved external symbol glfwWindowShouldClose referenced in function main
+test.obj : error LNK2019: unresolved external symbol glfwSetWindowShouldClose referenced in function "void __cdecl processInput(struct GLFWwindow *)" (?processInput@@YAXPEAUGLFWwindow@@@Z)
+test.obj : error LNK2019: unresolved external symbol glfwSetFramebufferSizeCallback referenced in function main
+test.obj : error LNK2019: unresolved external symbol glfwPollEvents referenced in function main
+test.obj : error LNK2019: unresolved external symbol glfwGetKey referenced in function "void __cdecl processInput(struct GLFWwindow *)" (?processInput@@YAXPEAUGLFWwindow@@@Z)
+test.obj : error LNK2019: unresolved external symbol glfwMakeContextCurrent referenced in function main
+test.obj : error LNK2019: unresolved external symbol glfwSwapBuffers referenced in function main
+test.obj : error LNK2019: unresolved external symbol glfwGetProcAddress referenced in function main
+test.obj : error LNK2019: unresolved external symbol strlen referenced in function "public: static unsigned __int64 __cdecl std::_Narrow_char_traits<char,int>::length(char const * const)" (?length@?$_Narrow_char_traits@DH@std@@SA_KQEBD@Z)
+glad.lib(glad.obj) : error LNK2001: unresolved external symbol strlen
+test.obj : error LNK2001: unresolved external symbol __CxxFrameHandler4
+test.obj : error LNK2001: unresolved external symbol _fltused
+LINK : error LNK2001: unresolved external symbol mainCRTStartup
+glad.lib(glad.obj) : error LNK2019: unresolved external symbol __imp___stdio_common_vsscanf referenced in function _vsscanf_s_l
+glad.lib(glad.obj) : error LNK2019: unresolved external symbol __imp_free referenced in function free_exts
+glad.lib(glad.obj) : error LNK2019: unresolved external symbol __imp_malloc referenced in function get_exts
+glad.lib(glad.obj) : error LNK2019: unresolved external symbol memcpy referenced in function get_exts
+glad.lib(glad.obj) : error LNK2019: unresolved external symbol __imp_strncmp referenced in function find_coreGL
+glad.lib(glad.obj) : error LNK2001: unresolved external symbol __GSHandlerCheck
+glad.lib(glad.obj) : error LNK2019: unresolved external symbol __security_check_cookie referenced in function find_coreGL
+glad.lib(glad.obj) : error LNK2019: unresolved external symbol __security_cookie referenced in function find_coreGL
+bazel-out\x64_windows-fastbuild\bin\src\test.exe : fatal error LNK1120: 24 unresolved externals
+Target //src:test failed to build
+Use --verbose_failures to see the command lines of failed build steps.
+INFO: Elapsed time: 0.593s, Critical Path: 0.41s
+INFO: 3 processes: 3 internal.
+ERROR: Build did NOT complete successfully

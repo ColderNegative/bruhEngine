@@ -5,7 +5,6 @@ cc_library(
     hdrs = ["glad.h"],
     srcs = ["glad.c"],
     deps = [":khrplatform"],
-    linkopts = ["-DEFAULTLIB:opengl32.lib"],
     linkstatic = False,
 )
 

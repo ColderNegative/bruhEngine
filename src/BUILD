@@ -12,16 +12,16 @@ OPENGL_LINKOPTS = select({
         "-ldl",
     ],
     "@platforms//os:windows": [
-        "-DEFAULTLIB:user32.lib",
-        "-DEFAULTLIB:gdi32.lib",
-        "-DEFAULTLIB:shell32.lib",
-        "-DEFAULTLIB:opengl32.lib",
-        "-DEFAULTLIB:glu32.lib",
-        "-NODEFAULTLIB:ucrt.lib",
-        "-NODEFAULTLIB:vcruntime.lib",
-        "-NODEFAULTLIB:msvcrt.lib",
-        "-DEFAULTLIB:kernel32.lib",
-        "-DEFAULTLIB:advapi32.lib",
+        "/DEFAULTLIB:user32.lib",
+        "/DEFAULTLIB:gdi32.lib",
+        "/DEFAULTLIB:shell32.lib",
+        "/DEFAULTLIB:opengl32.lib",
+        "/DEFAULTLIB:glu32.lib",
+        "/NODEFAULTLIB:ucrt.lib",
+        "/NODEFAULTLIB:vcruntime.lib",
+        "/NODEFAULTLIB:msvcrt.lib",
+        "/DEFAULTLIB:kernel32.lib",
+        "/DEFAULTLIB:advapi32.lib",
     ],
     "//conditions:default": [],
 })
@@ -38,7 +38,7 @@ cc_binary(
     name = "test",
     srcs = ["test.cpp"],
     deps = ["//lib:glfw", "//include:glad"],
-    linkopts = ["-"],
+    linkopts = OPENGL_LINKOPTS,
 )
 
 cc_binary(
