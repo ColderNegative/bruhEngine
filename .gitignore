@@ -1,5 +1,7 @@
-bazel-bin/
-bazel-bruhengine/
-bazel-out/
-bazel-testlogs/
+bazel-bin
+bazel-bruhengine
+bazel-out
+bazel-testlogs
 MODULE.bazel.lock
+.cache
+build

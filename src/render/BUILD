@@ -5,6 +5,4 @@ cc_library(
     hdrs = ["window.hpp"],
     srcs = ["window.cpp"],
     deps = ["//src/templates:singleton", "//include:glad", "//lib:glfw"],
-    linkopts = ["-DEFAULTLIB:opengl32"],
-    linkstatic = False,
 )

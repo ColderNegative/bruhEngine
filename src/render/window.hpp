@@ -1,4 +1,5 @@
 #pragma once
+
 #include "../templates/singleton.hpp"
 #include "include/glad.h"
 #include "lib/glfw3.h"
@@ -13,4 +14,4 @@ public:
   void poll();
   void draw();
 };
-}
+} // namespace render
